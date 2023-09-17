@@ -1,0 +1,13 @@
+
+  <div>
+
+    <label for="name">Your name:</label><input id="name" type="text" #name>
+    <button (click)="generateCard(name.value)">Generate</button>
+    <div *ngIf="generated()">
+      Thanks for register your card is : {{generated()}}
+    </div>
+  </div>
+  <div *ngFor="let item of cards()" class="card">
+    <span>Card Code: {{item.code}}</span>
+    <span>Valid: {{item.validDate}}</span>
+  </div>
