@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  jumbo_api:
+    image: jumboapi
+    build:
+      context: jumbo_api
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - jumbo_net
+  jumbo_web:
+    image: jumboweb
+    build:
+      context: jumbo_web
+      dockerfile: Dockerfile
+    ports:
+      - 3001:80
+    networks:
+      - jumbo_net
+networks:
+  jumbo_net:
+    driver: bridge

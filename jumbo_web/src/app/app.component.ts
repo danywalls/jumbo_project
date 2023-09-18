@@ -20,6 +20,4 @@ export class AppComponent  {
   generateCard(name: string) {
     this.#cardsService.generate(name);
   }
-
-
 }
