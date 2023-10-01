@@ -11,13 +11,22 @@ import { CardsService } from './services/cards.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent  {
-
-  #cardsService = inject(CardsService)
+export class AppComponent {
+  #cardsService = inject(CardsService);
   cards = this.#cardsService.cards;
   generated = this.#cardsService.randomCard;
 
   generateCard(name: string) {
     this.#cardsService.generate(name);
+  }
+
+  deleteCard(id: string) {
+    this.#cardsService.delete(id)
+   }
+
+  updateCard(id: string) {
+    this.#cardsService.update(id, {
+      holder: 'Updated From UI'
+    })
   }
 }
