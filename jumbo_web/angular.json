@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "jumbo_web:build:production"
+              "buildTarget": "jumbo_web:build:production"
             },
             "development": {
-              "browserTarget": "jumbo_web:build:development"
+              "buildTarget": "jumbo_web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "jumbo_web:build"
+            "buildTarget": "jumbo_web:build"
           }
         },
         "test": {
