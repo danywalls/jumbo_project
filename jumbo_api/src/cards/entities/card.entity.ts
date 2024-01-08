@@ -1,6 +1,6 @@
 export type Card = {
   id: number;
   code: string;
-  validDate: string;
+  valid: string;
   holder: string;
 };

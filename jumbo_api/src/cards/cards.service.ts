@@ -1,9 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Card } from './entities/card.entity';
+import { CARDS_MOCK } from './entities/mock-cards';
 
 @Injectable()
 export class CardsService {
-  private cards: Array<Card> = [];
+  private cards: Array<Card> = [...CARDS_MOCK];
 
   getAll(): Array<Card> {
     return this.cards;
