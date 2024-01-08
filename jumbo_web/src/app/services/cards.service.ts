@@ -4,6 +4,14 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { Subject, combineLatest } from 'rxjs';
 
 
+export type Card = {
+  id: number;
+  code: string;
+  valid: string;
+  holder: string;
+};
+
+
 @Injectable({ providedIn: 'root' })
 export class CardsService {
   #http = inject(HttpClient);
@@ -11,9 +19,7 @@ export class CardsService {
 
   #subscribe = (id: string) => `${this.#API}/subscribe/${id}`;
   #actionSubject = new Subject<void>();
-
-  cards = toSignal<any>(this.#http.get<[]>(`${this.#API}/list`));
-  randomCard = signal<unknown>(undefined);
+  cards = toSignal(this.#http.get<Card[]>(`${this.#API}/list`));
 
   update(id: string, cardUpdate: any) {
     this.#http
@@ -33,7 +39,7 @@ export class CardsService {
         name,
       })
       .subscribe((response: unknown) => {
-        this.#actionSubject.next;
+        this.#actionSubject.next();
       });
   }
 }
