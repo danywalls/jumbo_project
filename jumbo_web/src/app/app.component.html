@@ -1,19 +1,16 @@
+<head>
 
-  <div>
-    <label for="name">Your name:</label><input id="name" type="text" #name>
-    <button (click)="generateCard(name.value)">Save</button>
+<h1>Jumbo</h1>
+  <nav>
+    <ul>
+      <li><a [routerLink]="['Cards']">Cards</a></li>
+    </ul>
+  </nav>
+</head>
+<main>
+    <router-outlet></router-outlet>
+</main>
+<footer>
 
-    <div *ngIf="generated()">
-      Thanks for register your card is : {{generated() | json}}
-    </div>
-  </div>
-
-  <div *ngFor="let item of cards()" class="card">
-    <span>{{item.id}}</span>
-    {{item.holder}}
-    <span>Card Code: {{item.code}}</span>
-    <span>Valid: {{item.validDate}}</span>
-    <button (click)="updateCard(item.id)">Update</button>
-    <button (click)="deleteCard(item.id)">delete</button>
-
-  </div>
+  2024
+</footer>
